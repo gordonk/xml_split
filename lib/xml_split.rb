@@ -31,7 +31,7 @@ class XmlSplit
     if caching and @cache_full
       @nodes.each(&blk)
     else
-      caching = caching
+      # caching = caching
       leftover = ''
       IO.popen([ XmlSplit.sgrep_bin, '-n', '-o', "#{MAGIC_START}%r#{MAGIC_STOP}", %{"#{start}" .. "#{stop}"}, path ]) do |io|
         while additional = io.read(CHUNK_SIZE)
